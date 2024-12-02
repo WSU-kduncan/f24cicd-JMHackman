@@ -11,7 +11,12 @@
 
 - The main point of this project is to make a container for an angular application using docker and CI which is continous integration with github. This can help make repeatable environments for later apps and containers. the tools that were used in this project are, Docker, Angular, and Github. I used Docker for container storage and Angular as it was the given framework for this project and I used Github for the CI that was needed for the project.
 
+- Diagramming goes here
+
+- Include a diagram (or diagrams) of your entire workflow. Meaning it should start with a project change / update, the steps that happen in between, and end with the updated version when the server is queried (web page is accessed)
+
 # Run Project Locally
+
 - I installed docker via the docker website, dockerhub and downloaded docker desktop to assist in the project. I also made sure to make the account to the project specifications as i was having some issues with docker a few weeks ago.
 
 - The first step would be to create the Dockerfile, with pieces like, `FROM, WORKDIR, COPY, RUN, COPY, EXPOSE, CMD and any others`. Than build the image with `docker build -t name/angular-site .`. Than you should run the container to see if it works and us the command, `docker run -p portnumber:portnumber name/angular-site`. Than lastly, you should push the image to dockerhub using the command `docker push name/angular-site`.
@@ -28,7 +33,7 @@
 
 - The method to push to DockerHub is quite simple as well, simply log in, and enter the code `docker push username/repositoryname:tag` and it will work, just check docker to make sure.
 
-- My DockerHub Link is `a`.
+- My DockerHub Link is `https://hub.docker.com/u/hackmanmeme`.
 
 # GitHub Actions
 
@@ -36,23 +41,7 @@
   - The `DOCKER_USERNAME`, was set using the dockerhub username that was made `hackmanmeme` and the `DOCKER_TOKEN`, was generated using the given Token.
 
 - Behavior of GitHub workflow
-  - what does it do and when
+  - The workflow is triggered when changes are made to the main branch or when a pull request is made. It checks the code out and builds a docker image from the dockerfile, than the image is tagged with my username and the given tag, and pushed to docker hub.
+
   - The custom variables are four seperate variables, them being, `${{ secrets.DOCKER_USERNAME }}`, `${{ secrets.DOCKER_TOKEN }}`, `angular-site`, and `v1.0`. The first being the docker username, the second being the token for docker, the third would be the name of the docker image, which i dont know if it was supposed to be angular site, but thats what it turned out to be, and lastly would be version 1.0, saying that this was the first version.
 
-# Deployment
-
-- Description of container restart script
-- Setting up a webhook on the server
-  - How you created you own listener
-  - How you installed the [webhook on GitHub](https://github.com/adnanh/webhook)
-  - How to keep the webhook running if the instance is on
-- Description of Webhook task definition file
-- Steps to set up a notifier in GitHub or DockerHub
- - summary of what a user would need to change or configure if using your workflow to duplicate your project
-- **Link** to workflow file in your GitHub repository
-
-## Part 3 - Diagramming
-
-Include a diagram (or diagrams) of the continuous integration process.  A good diagram will label tools used and how things connect.  This diagram would probably look best near your project description.
-
-- Part 4 - Diagramming goes here                                        - Include a diagram (or diagrams) of your entire workflow. Meaning it should start with a project change / update, the steps that happen in between, and end with the updated version when the server is queried (web page is accessed)
