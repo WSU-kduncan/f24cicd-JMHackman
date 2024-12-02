@@ -8,9 +8,6 @@
 
 ### Tasks
 
-1. Install Docker to your system.
-2. Create DockerHub account: https://hub.docker.com/
-    - select Free tier if prompted
 3.  Create Public Repository in DockerHub named YOURLASTNAME-CEG3120
 4. Create new GitHub repo (link to create located in Pilot in Content -> CI/CD Projects)
     - This repository will be Public (your previous repo was Private) and you will have privileges to manipulate the repository settings
@@ -70,25 +67,9 @@ In `README-CI.md`, include the following details:
   - summary of what a user would need to change or configure if using your workflow to duplicate your project
     - include workflow changes & repository changes
 
-### Resources
-
-- [Docker Docs - CICD with GitHub Actions](https://docs.docker.com/ci-cd/github-actions/)
-- [GitHub Actions - build-push-action documentation](https://github.com/marketplace/actions/build-and-push-docker-images)
-- [GitHub - publishing images to DockerHub](https://docs.github.com/en/actions/guides/publishing-docker-images#publishing-images-to-docker-hub)
-
 ## Part 3 - Diagramming
 
 Include a diagram (or diagrams) of the continuous integration process.  A good diagram will label tools used and how things connect.  This diagram would probably look best near your project description.
-
-### Resources
-
-You can use whatever tools you would like, here are some recommended tools that people use
-
-- [Lucid Charts](https://www.lucidchart.com/pages/)
-- [Textographo](https://textografo.com/)
-- [Mermaid - new markdown feature](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/)
-- [Eraser - Cloud Diagrams](https://docs.tryeraser.com/docs/cloud-diagrams)
-- PowerPoint and OneNote are still good choices
 
 ## Submission
 
@@ -101,8 +82,3 @@ You can use whatever tools you would like, here are some recommended tools that 
    - GitHub action `yml` file in `.github/workflows`
    - diagram image(s)
 
-2. In Pilot, paste the link to your project folder.
-
-## Rubric
-
-[View Project Rubric](Rubric.md)
