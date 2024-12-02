@@ -18,18 +18,19 @@
 # Run Project Locally
 - I installed docker via the docker website, dockerhub and downloaded docker desktop to assist in the project. I also made sure to make the account to the project specifications as i was having some issues with docker a few weeks ago.
 
-- The first step would be to create the Dockerfile, with pieces like, "FROM, WORKDIR, COPY, RUN, COPY, EXPOSE, CMD and any others". Than build the image with "docker build -t name/angular-site .". Than you should run the container to see if it works and us the command, "docker run -p portnumber:portnumber name/angular-site". Than lastly, you should push the image to dockerhub using the command "docker push name/angular-site".
+- The first step would be to create the Dockerfile, with pieces like, `FROM, WORKDIR, COPY, RUN, COPY, EXPOSE, CMD and any others`. Than build the image with `docker build -t name/angular-site .`. Than you should run the container to see if it works and us the command, `docker run -p portnumber:portnumber name/angular-site`. Than lastly, you should push the image to dockerhub using the command `docker push name/angular-site`.
 
-- To run an container you should 
-
-- how to view the project running in the container (open a browser...go to ip and port...)
+- To run and test a container you should follow the testing step that was used above, by using the commadn `docker run -p portnumber:portnumber name/angular-site`. This should set it up to run, and to test that you can use `http://localhost:portnumber` to check it, or verify with `docker ps`. 
 
 # DockerHub
 
-- Process to create public repo in DockerHub
-- How to authenticate with DockerHub via CLI using Dockerhub credentials
-  - what credentials would you recommend providing?
-- How to push container to Dockerhub
+- The process to make a public repo in DockerHub is quite simple. Firstly make an account, once an account has been made make sure when you are making the repo public that you click public and follow the directions and everythinvg should run smoothly.
+
+- To authenticate with DockerHub via CLI using Dockerhub credentials, one should enter into their own repo, and use `docker login` to enter credentials input, next step would be to enter said credentials, your `Username:    ` and your `Password:   ` Once said username and password are netered for DockerHub, it shoul clarify and say that you have been logged in, or it will show an error.
+
+- The only credentials truly needed are the Username and Password to DockerHub as once said credentials are made, and placed they should be saved to your device so on and so forth.
+
+- The method to push to DockerHub is quite simple as well, simply log in, and enter the code `docker push username/repositoryname:tag` and it will work, just check docker to make sure.
 
 # GitHub Actions
 
