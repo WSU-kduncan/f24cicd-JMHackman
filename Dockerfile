@@ -1,13 +1,33 @@
+# Build stage
 FROM node:18-bullseye AS build-stage
+
+# Set working directory inside container
 WORKDIR /app
-COPY package*.json ./
+
+# Copy package.json and package-lock.json from wsu-hw-ng-main
+COPY angular-site/wsu-hw-ng-main/package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Install Angular CLI globally
 RUN npm install -g @angular/cli
+
+# Copy the rest of the application code into the container
 COPY . .
+
+# Build the Angular app
 RUN ng build --prod
 
+# Production stage
 FROM nginx:alpine AS production-stage
+
+# Copy the built Angular app from the build-stage to the Nginx HTML directory
 COPY --from=build-stage /app/dist/angular-site /usr/share/nginx/html
+
+# Expose port 80 (default for Nginx)
 EXPOSE 80
+
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]
 
