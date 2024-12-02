@@ -4,7 +4,7 @@
 
 # Project 4
 
-## Part 1&2 - Docker & GitHub Actions and DockerHub
+## Docker & GitHub Actions and DockerHub
 ### Documentation
 
 # Project Overview
