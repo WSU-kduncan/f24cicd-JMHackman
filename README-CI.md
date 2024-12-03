@@ -9,6 +9,9 @@
 
 # Project Overview
 
+- There was an issue halfway through, I believe the solution is to either be in the root directory with the image or where the image is created. The issue could also be that a certain thing isnt installed or added. From what I can tell its either a .json file halving issues or it is the npm not being installed.
+
+
 - The main point of this project is to make a container for an angular application using docker and CI which is continous integration with github. This can help make repeatable environments for later apps and containers. the tools that were used in this project are, Docker, Angular, and Github. I used Docker for container storage and Angular as it was the given framework for this project and I used Github for the CI that was needed for the project.
 
 - ![image description](images/dockerandgithub.png) 
