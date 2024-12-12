@@ -22,9 +22,14 @@ RUN ng build --configuration production
 # Step 8: Expose port 80 for serving the application
 EXPOSE 80
 
+<<<<<<< HEAD
 # Step 9: Install a static file server and serve the application
 RUN npm install -g http-server
 
 # Step 10: Serve the production build using http-server from the correct directory
 CMD ["http-server", "dist/wsu-hw-ng", "--port", "80"]
 
+=======
+# Start Nginx in the foreground
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "80"]
+>>>>>>> d0c351db2af7b37610f739dc3f1ae237e70c3b68
