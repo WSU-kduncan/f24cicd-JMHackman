@@ -1,0 +1,11 @@
+[Unit]
+Description=Webhook Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/webhook -nopanic -hooks /etc/webhook.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

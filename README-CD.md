@@ -24,28 +24,32 @@
 
 ## Deployment
 
-- Instance information - at minimum pub
-- How to install Docker to the instance given it's OS
-- `bash` script
-  - Purpose
-  - Description of script taskings
-  - Location on instance filesystem
-  - LINK to your script in a folder named `deployment`
-- Purpose of installing & steps to install / setup adnanh's `webhook` to the instance
-- `webhook` / hook task definition file
-  - Description of what it does
-  - Location on instance filesystem
-  - LINK to your hook definition file in a folder named `deployment`
-- How to start the `webhook` listening (without using service)
-- How to test that the listener successfully listens & triggers the script
-  - include:
-    - how to monitor logs from the `webhook` program
-    - what to look for in `docker` process views
-- How to configure GitHub OR DockerHub to message the listener 
-- How to modify or create a `webhook` service file such that your `webhook` listener is listening as soon as the system is booted
-  - include commands to reload the service respective to files changed (`webhook` service file versus hook definition file)
-  - LINK to your `webhook` service file in a folder named `deployment`
+- Public IP: 3.86.202.55
 
+- Operating System: Ubuntu 20.04
+
+- Docker install, update the package index with `sudo apt-get update`, than install docker with `sudo apt-get install -y docker.io` start docker with, `sudo systemctl start docker` and enable docker with `sudo systemctl enable docker`, If you need to verify that it is running use `docker --version`.
+
+- The bash script allows the automatic deployment of docker to a specific image, and checks if the container is running and stops and removes if it is nescessary, than deploys the image again. The scrip tasks are simple, firstly, pull the docker image, secondly, check for existing containers, and lastly start a new container. 
+
+- Path: /home/meme/f24cicd-JMHackman/deployment/deploy.sh
+
+- Link:
+
+- Webhook setup: The webhook is used to listen to incoming HTTP requests and trigger specific actions when a webhook is recieved. It will listen to the redeploy-webhook call and execute a script to redeploy the docker container.
+
+- To install webhook, `sudo apt-get update` and `sudo apt-get install -y webhook` are needed first. Than configure the webhook listeneer and ensure the `webhook.conf` and the `hooks.json` file are set up properly. Make sure the ports are ready and continue. 
+
+- Description webhook:
+
+- Path: `/home/meme/f24cicd-JMHackman/deployment/hooks.json`
+
+- Link:
+
+- You can start the webhook listener without systemd service with `webhook -nopanic -hooks /home/meme/f24cicd-JMHackman/deployment/hooks.json` and test the webhook listener with `curl "http://localhost:9000/redeploy-webhook?secret=dckr_pat_1ewj9HpUBZ4zQm4kQ4LUu1mDtGE"` and these would work for my webhook.
+
+- You can monitor the logs from webhook with `sudo journalctl -u webhook -f` and verify if the docker container was working with `docker ps`. 
+- LAST HALF NEED TO BE DONE FOR DESCRIPTION
 ## Diagramming ( / 2)
 
 - Logically diagrammed steps for continuous deployment workflow

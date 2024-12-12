@@ -25,7 +25,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}  # DockerHub username
           password: ${{ secrets.DOCKER_TOKEN }}     # DockerHub access token
 
-      # Step 4: Generate metadata for tags based on Semantic Versioning
+      # Step 4: Generate Docker image tags based on Semantic Versioning
       - name: Generate Docker image tags
         id: metadata
         uses: docker/metadata-action@v4
@@ -34,14 +34,21 @@ jobs:
           tags: |
             type=semver,format={{version}},major={{major}},minor={{major}}.{{minor}},latest
 
-      # Step 5: Build the Docker image
+      # Step 5: Build the Docker image (considering the new folder structure)
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.tags }} .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.version }} \
+                       -t ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.major }} \
+                       -t ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.minor }} \
+                       -t ${{ secrets.DOCKER_USERNAME }}/angular-site:latest \
+                       ./angular-site  # Build context is the angular-site folder
 
-      # Step 6: Push the Docker image to DockerHub
+      # Step 6: Push Docker images to DockerHub
       - name: Push Docker image to DockerHub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.tags }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.version }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.major }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.minor }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:latest
 
 

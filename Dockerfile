@@ -1,32 +1,30 @@
-# Build stage
+# Step 1: Use the Node.js image as a base image
 FROM node:18-bullseye AS build-stage
 
-# Set working directory inside container
+# Step 2: Set the working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json from wsu-hw-ng-main
+# Step 3: Copy the package.json and package-lock.json
 COPY angular-site/wsu-hw-ng-main/package*.json ./
 
-# Install dependencies
+# Step 4: Install the dependencies
 RUN npm install
 
-# Install Angular CLI globally
+# Step 5: Install Angular CLI globally
 RUN npm install -g @angular/cli
 
-# Copy the rest of the application code into the container
-COPY . .
+# Step 6: Copy the rest of the application files
+COPY angular-site/wsu-hw-ng-main/ ./
 
-# Build the Angular app
-RUN ng build --prod
+# Step 7: Build the Angular application for production
+RUN ng build --configuration production
 
-# Production stage
-FROM nginx:alpine AS production-stage
-
-# Copy the built Angular app from the build-stage to the Nginx HTML directory
-COPY --from=build-stage /app/dist/angular-site /usr/share/nginx/html
-
-# Expose port 80 (default for Nginx)
+# Step 8: Expose port 80 for serving the application
 EXPOSE 80
 
-# Start Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Step 9: Install a static file server and serve the application
+RUN npm install -g http-server
+
+# Step 10: Serve the production build using http-server from the correct directory
+CMD ["http-server", "dist/wsu-hw-ng", "--port", "80"]
+
