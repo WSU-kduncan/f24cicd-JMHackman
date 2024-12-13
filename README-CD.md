@@ -59,18 +59,3 @@ LINK to your webhook service file in a folder named deploymentAAAAAAAAAAAAAAAAAA
 
 - Logically diagrammed steps for continuous deployment workflow
 
-## Demonstration ( / 10)
-
-1. current state of site running on server, before making a change
-    - show the page in the browser
-    - show the docker status
-2. making a change to the project file (from your local system)
-3. `commit` and `push` of the change (from your local system)
-4. `tag` the `commit` and `push` the `tag` (from your local system)
-5. the GitHub Action triggering, relevant logs that it worked
-6. DockerHub receiving a new set of tagged images (modified time should be visible)
-7. status of `webhook` running as a service on the server
-8. `webhook` logs that validate container refresh has been triggered
-9. post-change state of site running on server
-    - show the page in the browser
-    - show the docker status
