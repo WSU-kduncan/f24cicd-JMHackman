@@ -32,9 +32,9 @@ jobs:
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/angular-site
           tags: |
-            type=semver,format={{version}},major={{major}},minor={{major}}.{{minor}},latest
+            type=semver,format={{version}},major={{major}},minor={{minor}},latest
 
-      # Step 5: Build the Docker image (considering the new folder structure)
+      # Step 5: Build the Docker image
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.version }} \
@@ -50,5 +50,4 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.major }}
           docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:${{ steps.metadata.outputs.minor }}
           docker push ${{ secrets.DOCKER_USERNAME }}/angular-site:latest
-
 
