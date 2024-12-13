@@ -3,7 +3,7 @@ Description=Webhook Service
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/webhook -nopanic -hooks /etc/webhook.conf
+ExecStart=/usr/local/bin/webhook -nopanic -hooks /home/meme/f24cicd-JMHackman/deployment/webhook.conf
 Restart=always
 
 [Install]

@@ -1,12 +1,14 @@
 #!/bin/bash
 
+# Set image name and container name
 IMAGE_NAME="hackmanmeme/angular-site:v1.0"
 CONTAINER_NAME="angular-site-container"
 
+# Pull the latest Docker image
 echo "Pulling the latest Docker image..."
 docker pull $IMAGE_NAME
 
-echo "Checking for existing container..."
+# Check for an existing container
 EXISTING_CONTAINER=$(docker ps -aq -f name=$CONTAINER_NAME)
 
 if [ -n "$EXISTING_CONTAINER" ]; then
@@ -17,16 +19,18 @@ else
   echo "No existing container found."
 fi
 
+# Start a new container with the --restart option
 echo "Starting a new container..."
-docker run -d --name $CONTAINER_NAME -p 80:80 $IMAGE_NAME
+docker run -d --name $CONTAINER_NAME --restart always -p 80:80 $IMAGE_NAME
 
+# Verify if the container is running
 echo "Verifying if the container is running..."
 docker ps | grep $CONTAINER_NAME
 
 if [ $? -eq 0 ]; then
-  echo "Container is running. You can access the app at http://3.86.202.55:80"
+  echo "Container is running."
 else
   echo "Failed to start the container."
+  exit 1
 fi
-
 

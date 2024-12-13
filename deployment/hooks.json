@@ -1,8 +1,8 @@
 [
   {
     "id": "redeploy-webhook",
-    "execute-command": "/var/scripts/redeploy.sh",
-    "command-working-directory": "/var/webhook",
+    "execute-command": "/home/meme/f24cicd-JMHackman/deployment/deploy.sh",
+    "command-working-directory": "/home/meme/f24cicd-JMHackman/deployment",
     "trigger-rule": {
       "url-param": "secret",
       "value": "dckr_pat_1ewj9HpUBZ4zQm4kQ4LUu1mDtGE"
