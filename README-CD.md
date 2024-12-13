@@ -49,7 +49,12 @@
 - You can start the webhook listener without systemd service with `webhook -nopanic -hooks /home/meme/f24cicd-JMHackman/deployment/hooks.json` and test the webhook listener with `curl "http://localhost:9000/redeploy-webhook?secret=dckr_pat_1ewj9HpUBZ4zQm4kQ4LUu1mDtGE"` and these would work for my webhook.
 
 - You can monitor the logs from webhook with `sudo journalctl -u webhook -f` and verify if the docker container was working with `docker ps`. 
-- LAST HALF NEED TO BE DONE FOR DESCRIPTION
+
+- To configure to send webhook messages, you can go to the github repository and navigate through settings and go to webhooks. Add a webhook and enter the URL of the webhook being used. Choose `application/json`, and save said webhook.
+
+- How to modify or create a webhook service file such that your webhook listener is listening as soon as the system is booted
+include commands to reload the service respective to files changed (webhook service file versus hook definition file)
+LINK to your webhook service file in a folder named deploymentAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
 ## Diagramming ( / 2)
 
 - Logically diagrammed steps for continuous deployment workflow
