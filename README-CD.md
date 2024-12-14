@@ -34,7 +34,7 @@
 
 - Path: /home/meme/f24cicd-JMHackman/deployment/deploy.sh
 
-- Link:
+- Link: [Link to deploy.sh](~/f24cicd-JMHackman/deployment/deploy.sh)
 
 - Webhook setup: The webhook is used to listen to incoming HTTP requests and trigger specific actions when a webhook is recieved. It will listen to the redeploy-webhook call and execute a script to redeploy the docker container.
 
@@ -44,7 +44,7 @@
 
 - Path: `/home/meme/f24cicd-JMHackman/deployment/hooks.json`
 
-- Link:
+- Link: [Link to hooks.json](~/f24cicd-JMHackman/deployment/hooks.json)
 
 - You can start the webhook listener without systemd service with `webhook -nopanic -hooks /home/meme/f24cicd-JMHackman/deployment/hooks.json` and test the webhook listener with `curl "http://localhost:9000/redeploy-webhook?secret=dckr_pat_1ewj9HpUBZ4zQm4kQ4LUu1mDtGE"` and these would work for my webhook.
 
@@ -52,10 +52,11 @@
 
 - To configure to send webhook messages, you can go to the github repository and navigate through settings and go to webhooks. Add a webhook and enter the URL of the webhook being used. Choose `application/json`, and save said webhook.
 
-- How to modify or create a webhook service file such that your webhook listener is listening as soon as the system is booted
-include commands to reload the service respective to files changed (webhook service file versus hook definition file)
-LINK to your webhook service file in a folder named deploymentAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 
-## Diagramming ( / 2)
+- To make a service file, create it in a designated location with `nano` or `vim` and inside the file define the service configuration. Enable the service to satrt at boot with `sudo systemctl enable webhook-listener.service` and start the service with `sudo systemctl start webhook-listener.service`. You can reload the system with `sudo systemctl daemon-reload`. You can enable the service to start at boot with `sudo systemctl enable webhook-listener.service` nad start with `sudo systemctl start webhook-listener.service`.
+
+- [Link to webhook.service](~/f24cicd-JMHackman/deployment/webhook.service)
+
+# Diagram
 
 - Logically diagrammed steps for continuous deployment workflow
 
