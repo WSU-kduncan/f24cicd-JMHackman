@@ -54,9 +54,17 @@
 
 - To make a service file, create it in a designated location with `nano` or `vim` and inside the file define the service configuration. Enable the service to satrt at boot with `sudo systemctl enable webhook-listener.service` and start the service with `sudo systemctl start webhook-listener.service`. You can reload the system with `sudo systemctl daemon-reload`. You can enable the service to start at boot with `sudo systemctl enable webhook-listener.service` nad start with `sudo systemctl start webhook-listener.service`.
 
-- [Link to webhook.service](https://github.com/WSU-kduncan/f24cicd-JMHackman/blob/main/deployment/webhook.service)
+- Link: [Link to webhook.service](https://github.com/WSU-kduncan/f24cicd-JMHackman/blob/main/deployment/webhook.service)
 
-# Diagram
+## Failures
 
-- Logically diagrammed steps for continuous deployment workflow
+- For some reason unknown, I can make the `Dockerfile` push and build a container, I can make the `webhooks` work and I can make the actions push and all that. For some reason when put all together, nothing works, it all works individually but not when set in sequence. 
 
+
+## Diagram
+
+- [diagram](meme@Meme:~/f24cicd-JMHackman/images/diagram)
+
+## CItations
+
+- Project 4, recordings, several grauated students, chatGPT, `adnah` for webhooks, stack overflow and other assorted websites. 
