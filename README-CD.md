@@ -63,7 +63,7 @@
 
 ## Diagram
 
-- ![Diagram](meme@Meme:~/f24cicd-JMHackman/images/diagram_p5.png)
+- ![Diagram](~/f24cicd-JMHackman/images/diagram_p5.png)
 
 ## CItations
 
