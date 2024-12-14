@@ -34,7 +34,7 @@
 
 - Path: /home/meme/f24cicd-JMHackman/deployment/deploy.sh
 
-- Link: [Link to deploy.sh](~/f24cicd-JMHackman/deployment/deploy.sh)
+- Link: [Link to deploy.sh](https://github.com/WSU-kduncan/f24cicd-JMHackman/blob/main/deployment/deploy.sh)
 
 - Webhook setup: The webhook is used to listen to incoming HTTP requests and trigger specific actions when a webhook is recieved. It will listen to the redeploy-webhook call and execute a script to redeploy the docker container.
 
@@ -44,7 +44,7 @@
 
 - Path: `/home/meme/f24cicd-JMHackman/deployment/hooks.json`
 
-- Link: [Link to hooks.json](~/f24cicd-JMHackman/deployment/hooks.json)
+- Link: [Link to hooks.json](https://github.com/WSU-kduncan/f24cicd-JMHackman/blob/main/deployment/hooks.json)
 
 - You can start the webhook listener without systemd service with `webhook -nopanic -hooks /home/meme/f24cicd-JMHackman/deployment/hooks.json` and test the webhook listener with `curl "http://localhost:9000/redeploy-webhook?secret=dckr_pat_1ewj9HpUBZ4zQm4kQ4LUu1mDtGE"` and these would work for my webhook.
 
@@ -54,7 +54,7 @@
 
 - To make a service file, create it in a designated location with `nano` or `vim` and inside the file define the service configuration. Enable the service to satrt at boot with `sudo systemctl enable webhook-listener.service` and start the service with `sudo systemctl start webhook-listener.service`. You can reload the system with `sudo systemctl daemon-reload`. You can enable the service to start at boot with `sudo systemctl enable webhook-listener.service` nad start with `sudo systemctl start webhook-listener.service`.
 
-- [Link to webhook.service](~/f24cicd-JMHackman/deployment/webhook.service)
+- [Link to webhook.service](https://github.com/WSU-kduncan/f24cicd-JMHackman/blob/main/deployment/webhook.service)
 
 # Diagram
 
