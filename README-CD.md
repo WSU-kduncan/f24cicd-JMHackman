@@ -1,17 +1,6 @@
 # Project 5
 # Jeremy H
 
-## Repo contents
-
-- `README-CD.md` (and `README-CI.md` from P4)
-- `angular-site` folder with application
-- `Dockerfile`
-- GitHub action `yml` file in `.github/workflows`
-- `deployment` folder with:
-  - `bash` script
-  - `webhook` / `hook` definition file
-  - `webhook` service file
-
 ## Semantic Versioning
 
 - CD Project Overview
